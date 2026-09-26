@@ -1,3 +1,14 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+// The Obsidian theme paints the sidebars with --background-secondary (--lightgray)
+// while the center panel gets --background-primary (--light). Unlayered rules here
+// outrank the theme's @layer rules, so no !important is needed.
+.page > #quartz-body {
+  & .sidebar,
+  & .sidebar.left:has(.explorer),
+  & .sidebar.left .explorer .explorer-content {
+    background-color: var(--background-primary, var(--light));
+  }
+}
